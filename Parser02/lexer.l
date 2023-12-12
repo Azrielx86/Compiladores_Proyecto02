@@ -1,7 +1,6 @@
 %{
   #include <stdio.h>
   #include "parser.tab.h"
-
   void yyerror(char*);
 %}
 
@@ -12,8 +11,7 @@
 
 0           { return '0'; }
 1           { return '1'; }
-
-.         { yyerror("caracter diferente de 0 o 1"); }
+.           { yyerror("caracter diferente de 0 o 1"); }
 
 %%
 
@@ -23,10 +21,7 @@ void yyerror(char *s){
 
 int main (int argc,char**argv)
 {
-    yydebug = 1;
-    yyparse();
-
-/*
+    // yydebug = 1;
   if (argc != 2){
     printf("Uso: %s <nombre_del_archivo>\n", argv[0]);
 	  return 1;
@@ -41,6 +36,5 @@ int main (int argc,char**argv)
     
   fclose(yyin);
   yylex_destroy();
-*/
   return 0;
 }

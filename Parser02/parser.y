@@ -4,19 +4,17 @@ int yylex(void);
 void yyerror(char* s);
 %}
 
-%define api.value.type { char* }
-
-%left '0' '1'
+%right '0' '1'
 
 %%
     E   : 
-        | E '\n' 
-        | E S
+        | E '\n'
+        | E S       { printf("\n\n"); }
         ;
 
-    S   : '0'       { $$ = $1; printf("-0"); }
-        | '1'       { $$ = $1; printf("-1"); }
-        | '0' S     { $$ = $1; printf("%s", $1); }
-        | '1' S     { $$ = $1; printf("%s", $1); }
+    S   : '0'       { printf("0"); }
+        | '1'       { printf("1"); }
+        | '0' S     { printf("%c0", $2); }
+        | '1' S     { printf("%c1", $2); }
         ;
 %%
