@@ -10,7 +10,8 @@
 
 %%
 
-[01]+     { printf("Recibido: %s\n", yytext); return *yytext; } 
+0           { return '0'; }
+1           { return '1'; }
 
 .         { yyerror("caracter diferente de 0 o 1"); }
 

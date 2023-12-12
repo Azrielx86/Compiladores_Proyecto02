@@ -4,7 +4,7 @@ BISON = bison
 # -g : Información de debug.
 # -gdwarf-4 : Para utilizar valgrind y clang.
 # -Wall : Para advertencias adicionales
-FLAGS = -g -gdwarf-4 -Wall
+FLAGS = -g -gdwarf-4 -Wall -ly
 
 all: program
 
